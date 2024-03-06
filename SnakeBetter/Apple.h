@@ -2,10 +2,12 @@
 #include "Point.h"
 #include <ctime>
 #include <iostream>
+#include <vector>
+#include "Field.h"
 
 class Apple {
 public:
-	Point SpawnApple(int, int);
-private:
-	int x, y;
+	Apple(int, int);
+	int x, y, w, h;
+	void SpawnApple();
 };

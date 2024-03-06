@@ -7,7 +7,7 @@ Field::Field(unsigned int width, unsigned int height) {
 	field = { width, vector<char>(height) };
 }
 
-void Field::Fill(Snake snake, Point apple) {
+void Field::Fill(Snake snake, Apple apple) {
 	size_t height = field.size();
 	size_t width = field[0].size();
 
@@ -17,11 +17,11 @@ void Field::Fill(Snake snake, Point apple) {
 		}
 	}
 
+	field[apple.y][apple.x] = '*';
+
 	for (size_t i = 0; i < snake.len; ++i) {
 		field[snake.body[i].y][snake.body[i].x] = '@';
 	}
-
-	field[apple.y][apple.x] = '*';
 }
 
 void Field::Show() {

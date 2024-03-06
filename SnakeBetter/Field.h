@@ -4,16 +4,19 @@
 #include <string>
 #include "Snake.h"
 #include "Point.h"
+#include "Apple.h"
 
 using namespace std;
 
+class Snake;
+class Apple;
+
 class Field {
 public:
-	Field(unsigned int, unsigned int);
-	void Fill(Snake, Point);
-	void Show();
-private:
 	vector<vector<char>> field;
+	Field(unsigned int, unsigned int);
+	void Fill(Snake, Apple);
+	void Show();
 };
 
 

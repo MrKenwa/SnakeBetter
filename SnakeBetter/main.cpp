@@ -31,8 +31,8 @@ int main() {
 	Point startPoint = { w / 2, h / 2 };
 	Snake snake(startPoint);
 
-	Apple eda;
-	Point applePoint = eda.SpawnApple(w, h);
+	Apple eda(w, h);
+	eda.SpawnApple();
 
 	Field map(h, w);
 
@@ -40,10 +40,19 @@ int main() {
 	while (flag) {
 		bool isHit = false;
 		isHit = _kbhit();
-		snake.MoveSnake(isHit);
-		map.Fill(snake, applePoint);
+
+		//snake.MoveSnake(isHit, eda);
+		bool isEated = snake.MoveSnake(isHit, eda);
+		//bool isEated = snake.isEat(eda);
+		if (isEated) {
+			eda.SpawnApple();
+			while (map.field[eda.y][eda.y] == '@') {
+				eda.SpawnApple();
+			}
+		}
+		map.Fill(snake, eda);
 		map.Show();
-		Sleep(50);
+		Sleep(100);
 		gotoxy();
 	}
 

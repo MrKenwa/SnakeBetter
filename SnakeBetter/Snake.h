@@ -4,8 +4,11 @@
 #include<conio.h>
 #include"Point.h"
 #include"Consts.h"
+#include"Apple.h"
 
 using namespace std;
+
+class Apple;
 
 class Snake {
 public:
@@ -14,10 +17,12 @@ public:
 	vector<Point> body;
 	Snake(Point);
 
-	void MoveSnake(bool);
+	bool MoveSnake(bool, Apple);
 
 	void ChangeDirection();
 
-	void isEat();
+	bool isEat(Apple);
+
+	bool increaseSnake(Apple);
 
 };
