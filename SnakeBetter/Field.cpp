@@ -3,7 +3,6 @@
 using namespace std;
 
 Field::Field(unsigned int width, unsigned int height) {
-	//vector<vector<char>> field(width, vector<char>(height));
 	field = { width, vector<char>(height) };
 }
 

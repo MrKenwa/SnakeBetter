@@ -7,6 +7,6 @@ Apple::Apple(int width, int height) {
 
 void Apple::SpawnApple() {
 	srand(time(NULL));
-	x = rand() % (w + 1);
-	y = rand() % (h + 1);
+	x = rand() % w;
+	y = rand() % h;
 }

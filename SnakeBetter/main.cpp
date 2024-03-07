@@ -41,9 +41,7 @@ int main() {
 		bool isHit = false;
 		isHit = _kbhit();
 
-		//snake.MoveSnake(isHit, eda);
 		bool isEated = snake.MoveSnake(isHit, eda);
-		//bool isEated = snake.isEat(eda);
 		if (isEated) {
 			eda.SpawnApple();
 			while (map.field[eda.y][eda.y] == '@') {

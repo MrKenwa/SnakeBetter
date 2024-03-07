@@ -53,7 +53,6 @@ void Snake::ChangeDirection() {
 bool Snake::isEat(Apple a) {
 	if (a.x == body[0].x && a.y == body[0].y) {
 		return true;
-		//a.SpawnApple();
 	}
 	else {
 		return false;
