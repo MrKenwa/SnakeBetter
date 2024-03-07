@@ -1,12 +1,14 @@
-#include<iostream>
-#include<vector>
-#include<Windows.h>
+#include <iostream>
+#include <vector>
+#include <Windows.h>
 #include <stdlib.h>
-#include"Field.h"
-#include"Point.h"
-#include"Snake.h"
-#include"Apple.h"
-#include"SetCursor.h"
+#include <fstream>
+#include "Field.h"
+#include "Point.h"
+#include "Snake.h"
+#include "Apple.h"
+#include "SetCursor.h"
+#include "Record.h"
 
 using namespace std;
 
@@ -42,6 +44,9 @@ int main() {
 	// Init field
 	Field map(w, h);
 
+	// Record init
+	Record record;
+
 	bool gameGoing = true;
 	while (gameGoing) {
 		bool isHit = false;
@@ -62,9 +67,12 @@ int main() {
 			map.Show();
 			Sleep(100);
 		}
-
+		else {
+			record.SetRecord(snake.len);
+		}
 		gotoxy();
 	}
 	system("cls");
-	cout << "You loooooose!1!!11!!" << endl;
+	cout << "YOU LOOOOSE!" << endl;
+	cout << "YOUR RECORD: " << record.GetRecord() << endl;
 }

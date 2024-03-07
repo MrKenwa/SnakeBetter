@@ -132,6 +132,7 @@
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SetCursor.cpp" />
+    <ClCompile Include="Record.cpp" />
     <ClCompile Include="Snake.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +141,7 @@
     <ClInclude Include="Field.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="SetCursor.h" />
+    <ClInclude Include="Record.h" />
     <ClInclude Include="Snake.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
