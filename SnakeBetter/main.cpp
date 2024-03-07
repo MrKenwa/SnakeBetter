@@ -87,10 +87,10 @@ int main() {
 				startGame = false;
 				record.SetRecord(snake.len);
 				system("cls");
-				cout << "YOU LOOOOSE!" << endl;
+				cout << "YOU LOOOOSE!!1!" << endl;
 				cout << "YOUR SCORE: " << snake.len << endl;
 				cout << "YOUR RECORD: " << record.GetRecord() << endl;
-				cout << "PRESS ANY KEY TO RESTART GAME..." << endl;
+				cout << "PRESS ANY KEY TO RESTART THE GAME..." << endl;
 				startGame = doYouWannaPlay();
 				system("cls");
 			}
