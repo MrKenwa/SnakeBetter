@@ -2,14 +2,13 @@
 
 using namespace std;
 
-Field::Field(unsigned int width, unsigned int height) {
-	field = { width, vector<char>(height) };
+Field::Field(size_t fieldWidth, size_t fieldHeight) {
+	width = fieldWidth;
+	height = fieldHeight;
+	field = { height, vector<char>(width) };
 }
 
 void Field::Fill(Snake snake, Apple apple) {
-	size_t height = field.size();
-	size_t width = field[0].size();
-
 	for (size_t i = 0; i < height; ++i) {
 		for (size_t j = 0; j < width; ++j) {
 			field[i][j] = ' ';
@@ -24,9 +23,6 @@ void Field::Fill(Snake snake, Apple apple) {
 }
 
 void Field::Show() {
-	size_t height = field.size();
-	size_t width = field[0].size();
-
 	for (size_t i = 0; i < width + 2; i++) {
 		cout << '#';
 	}
@@ -43,4 +39,23 @@ void Field::Show() {
 	for (size_t i = 0; i < width + 2; i++) {
 		cout << '#';
 	}
+}
+
+bool Field::isGameGoing(Snake snake) {
+	bool flag = true;
+	for (size_t i = 1; i != snake.len; ++i) {
+		if (snake.body[0].x == snake.body[i].x &&
+			snake.body[0].y == snake.body[i].y) {
+			flag = false;
+		}
+	}
+
+	if (snake.body[0].x >= width ||
+		snake.body[0].x < 0 ||
+		snake.body[0].y >= height ||
+		snake.body[0].y < 0) {
+		flag = false;
+	}
+
+	return flag;
 }

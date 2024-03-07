@@ -13,16 +13,13 @@ class Apple;
 class Snake {
 public:
 	int len;
-	int dir;
 	vector<Point> body;
 	Snake(Point);
-
 	bool MoveSnake(bool, Apple);
 
+private:
+	int dir;
 	void ChangeDirection();
-
 	bool isEat(Apple);
-
 	bool increaseSnake(Apple);
-
 };

@@ -14,9 +14,12 @@ class Apple;
 class Field {
 public:
 	vector<vector<char>> field;
-	Field(unsigned int, unsigned int);
+	Field(size_t, size_t);
 	void Fill(Snake, Apple);
 	void Show();
+	bool isGameGoing(Snake);
+private:
+	size_t width, height;
 };
 
 

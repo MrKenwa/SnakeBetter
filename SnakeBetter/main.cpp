@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<Windows.h>
+#include <stdlib.h>
 #include"Field.h"
 #include"Point.h"
 #include"Snake.h"
@@ -19,25 +20,30 @@ using namespace std;
 //}
 
 int main() {
+	// Set cursor position and hiding cursor
 	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_CURSOR_INFO structCursorInfo;
 	GetConsoleCursorInfo(consoleHandle, &structCursorInfo);
 	structCursorInfo.bVisible = FALSE;
 	SetConsoleCursorInfo(consoleHandle, &structCursorInfo);
 
-	unsigned int w = 30;
-	unsigned int h = 20;
+	// Field width and height
+	size_t w = 30;
+	size_t h = 20;
 
+	// Snakes head position
 	Point startPoint = { w / 2, h / 2 };
 	Snake snake(startPoint);
 
+	// Initialization of apple
 	Apple eda(w, h);
 	eda.SpawnApple();
 
-	Field map(h, w);
+	// Init field
+	Field map(w, h);
 
-	bool flag = true;
-	while (flag) {
+	bool gameGoing = true;
+	while (gameGoing) {
 		bool isHit = false;
 		isHit = _kbhit();
 
@@ -48,10 +54,17 @@ int main() {
 				eda.SpawnApple();
 			}
 		}
-		map.Fill(snake, eda);
-		map.Show();
-		Sleep(100);
+
+		gameGoing = map.isGameGoing(snake);
+
+		if (gameGoing) {
+			map.Fill(snake, eda);
+			map.Show();
+			Sleep(100);
+		}
+
 		gotoxy();
 	}
-
+	system("cls");
+	cout << "You loooooose!1!!11!!" << endl;
 }

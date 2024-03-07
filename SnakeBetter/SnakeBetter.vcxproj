@@ -131,7 +131,6 @@
     <ClCompile Include="Consts.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Point.cpp" />
     <ClCompile Include="SetCursor.cpp" />
     <ClCompile Include="Snake.cpp" />
   </ItemGroup>

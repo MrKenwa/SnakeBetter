@@ -31,7 +31,6 @@ bool Snake::MoveSnake(bool flag, Apple apple) {
 void Snake::ChangeDirection() {
 	int key;
 	key = _getch();
-	//rewind(stdin);
 	while (_kbhit()) {
 		_getch();
 	}
