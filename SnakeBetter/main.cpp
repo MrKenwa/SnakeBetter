@@ -88,6 +88,7 @@ int main() {
 				record.SetRecord(snake.len);
 				system("cls");
 				cout << "YOU LOOOOSE!" << endl;
+				cout << "YOUR SCORE: " << snake.len << endl;
 				cout << "YOUR RECORD: " << record.GetRecord() << endl;
 				cout << "PRESS ANY KEY TO RESTART GAME..." << endl;
 				startGame = doYouWannaPlay();
